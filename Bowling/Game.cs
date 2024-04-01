@@ -3,6 +3,8 @@
 public class Game
 {
     private int _score;
+    private int _firstNumberPins;
+    private int _SecondNumberPins;
 
     public void Roll(int numberPins)
     {
@@ -10,6 +12,20 @@ public class Game
         {
             throw new ArgumentException("Number of pins must be positive and less than 10");
         }
+
+        if (_firstNumberPins != 0)
+        {
+            if (_firstNumberPins + numberPins > 10)
+            {
+                throw new ArgumentException("The sum of the number of pins must be less than 10");
+            }
+            _SecondNumberPins = numberPins;
+        }
+        else
+        {
+            _firstNumberPins = numberPins;
+        }
+
         _score += numberPins;
     }
 
