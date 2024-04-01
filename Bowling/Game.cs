@@ -6,6 +6,7 @@ public class Game
     private int _firstNumberPins;
     private int _secondNumberPins;
     private bool _isSpare;
+    private bool _isStrike;
 
     public void Roll(int numberPins)
     {
@@ -28,8 +29,14 @@ public class Game
 
     private void HandleFirstpin(int numberPins)
     {
+        if (_isStrike)
+        {
+            _score += numberPins;
+        }
+
         if (numberPins == 10)
         {
+            _isStrike = true;
             _firstNumberPins = 0;
             return;
         }
@@ -45,6 +52,12 @@ public class Game
 
     private void HandleSecondPin(int numberPins)
     {
+        if (_isStrike)
+        {
+            _score += numberPins;
+            _isStrike = false;
+        }
+
         if (_firstNumberPins + numberPins > 10)
         {
             throw new ArgumentException("The sum of the number of pins must be less than 10");
