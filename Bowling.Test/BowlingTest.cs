@@ -82,7 +82,7 @@ public class BowlingTest
         var game = new Game();
 
         game.Roll(10);
-        Action act = () => game.Roll(1);
+        var act = () => game.Roll(1);
 
         act.Should().NotThrow<ArgumentException>();
     }

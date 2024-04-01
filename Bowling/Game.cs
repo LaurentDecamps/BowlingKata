@@ -28,12 +28,18 @@ public class Game
 
     private void HandleFirstpin(int numberPins)
     {
+        if (numberPins == 10)
+        {
+            _firstNumberPins = 0;
+            return;
+        }
+
         if (_isSpare)
         {
             _score += numberPins;
             _isSpare = false;
         }
-
+        
         _firstNumberPins = numberPins;
     }
 
