@@ -64,5 +64,17 @@ public class BowlingTest
         act.Should().Throw<ArgumentException>();
     }
 
+    [Fact]
+    public void Make_Three_Rolls_With_Two_Last_Sum_More_Than_Ten_Should_Not_Throw_An_ArgumentException()
+    {
+        var game = new Game();
+
+        game.Roll(7);
+        game.Roll(2);
+        Action act = () => game.Roll(9);
+
+        act.Should().NotThrow<ArgumentException>();
+    }
+
     #endregion
 }
