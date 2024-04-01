@@ -20,6 +20,7 @@ public class Game
                 throw new ArgumentException("The sum of the number of pins must be less than 10");
             }
             _SecondNumberPins = numberPins;
+            _firstNumberPins = 0;
         }
         else
         {
