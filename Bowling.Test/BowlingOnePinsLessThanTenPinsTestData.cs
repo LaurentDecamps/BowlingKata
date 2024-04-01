@@ -2,10 +2,11 @@ using System.Collections;
 
 namespace Bowling.Test;
 
-public class BowlingLessThanTenPinsTestData : IEnumerable<object[]>
+public class BowlingOnePinsLessThanTenPinsTestData : IEnumerable<object[]>
 {
     public IEnumerator<object[]> GetEnumerator()
     {
+        yield return [0];
         yield return [1];
         yield return [2];
         yield return [3];
