@@ -26,4 +26,14 @@ public class BowlingTest
 
         game.Score().Should().Be(firstNumberPins + secondNumberPins);
     }
+
+    [Fact]
+    public void Make_A_Roll_Negative_Should_Throw_An_ArgumentException()
+    {
+        var game = new Game();
+
+        Action act = () => game.Roll(-1);
+
+        act.Should().Throw<ArgumentException>();
+    }
 }
