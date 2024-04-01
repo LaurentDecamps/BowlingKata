@@ -76,6 +76,17 @@ public class BowlingTest
         act.Should().NotThrow<ArgumentException>();
     }
 
+    [Fact]
+    public void Make_A_Strike_and_another_roll_Should_Not_Throw_An_ArgumentExeception()
+    {
+        var game = new Game();
+
+        game.Roll(10);
+        Action act = () => game.Roll(1);
+
+        act.Should().NotThrow<ArgumentException>();
+    }
+
     #endregion
 
     #region Spare Tests
