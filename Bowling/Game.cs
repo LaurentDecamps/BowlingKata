@@ -9,6 +9,6 @@ public class Game
 
     public int Score()
     {
-        return 0;
+        return 1;
     }
 }
