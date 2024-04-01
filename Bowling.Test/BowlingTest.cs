@@ -4,6 +4,8 @@ namespace Bowling.Test;
 
 public class BowlingTest
 {
+    #region Less than ten
+
     [Theory]
     [ClassData(typeof(BowlingOnePinsLessThanTenPinsTestData))]
     public void Make_Roll_of_Less_Than_Ten_Should_Give_A_Score_Of_Corresponding_Pins(int numberPins)
@@ -27,6 +29,10 @@ public class BowlingTest
         game.Score().Should().Be(firstNumberPins + secondNumberPins);
     }
 
+    #endregion
+    
+    #region Exception Tests
+
     [Fact]
     public void Make_A_Roll_Negative_Should_Throw_An_ArgumentException()
     {
@@ -46,4 +52,17 @@ public class BowlingTest
 
         act.Should().Throw<ArgumentException>();
     }
+
+    [Fact]
+    public void Make_Two_Rolls_More_Than_Ten_Should_Throw_An_ArgumentException()
+    {
+        var game = new Game();
+
+        game.Roll(9);
+        Action act = () => game.Roll(2);
+
+        act.Should().Throw<ArgumentException>();
+    }
+
+    #endregion
 }
