@@ -6,9 +6,9 @@ public class Game
 
     public void Roll(int numberPins)
     {
-        if (numberPins < 0)
+        if (numberPins is < 0 or > 10)
         {
-            throw new ArgumentException("Number of pins must be positive");
+            throw new ArgumentException("Number of pins must be positive and less than 10");
         }
         _score += numberPins;
     }

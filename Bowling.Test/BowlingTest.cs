@@ -36,4 +36,14 @@ public class BowlingTest
 
         act.Should().Throw<ArgumentException>();
     }
+
+    [Fact]
+    public void Make_A_Roll_More_Than_Ten_Should_Throw_An_ArgumentException()
+    {
+        var game = new Game();
+
+        Action act = () => game.Roll(11);
+
+        act.Should().Throw<ArgumentException>();
+    }
 }
