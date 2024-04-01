@@ -93,4 +93,21 @@ public class BowlingTest
     }
 
     #endregion
+
+    #region Strike Tests
+
+    [Fact]
+    public void Make_A_Strike_Should_Give_A_Score_Of_10_Plus_The_Next_Two_Rolls()
+    {
+        var game = new Game();
+
+        game.Roll(10);
+        game.Roll(3);
+        game.Roll(4);
+
+        game.Score().Should().Be(24);
+    }
+
+    #endregion
+
 }
