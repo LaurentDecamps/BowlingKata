@@ -77,4 +77,20 @@ public class BowlingTest
     }
 
     #endregion
+
+    #region Spare Tests
+
+    [Fact]
+    public void Make_A_Spare_Should_Give_A_Score_Of_10_Plus_The_Next_Roll()
+    {
+        var game = new Game();
+
+        game.Roll(5);
+        game.Roll(5);
+        game.Roll(3);
+
+        game.Score().Should().Be(16);
+    }
+
+    #endregion
 }
